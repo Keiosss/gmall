@@ -1,12 +1,14 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +24,9 @@ import com.atguigu.gmall.pms.service.SkuInfoService;
 /**
  * sku信息
  *
- * @author fgnb
- * @email fgnb@atguigu.com
- * @date 2019-12-02 19:53:01
+ * @author fengge
+ * @email lxf@atguigu.com
+ * @date 2019-12-02 11:23:36
  */
 @Api(tags = "sku信息 管理")
 @RestController
@@ -32,6 +34,15 @@ import com.atguigu.gmall.pms.service.SkuInfoService;
 public class SkuInfoController {
     @Autowired
     private SkuInfoService skuInfoService;
+
+    @GetMapping("{spuId}")
+    public Resp<List<SkuInfoEntity>> querySkusBySpuId(@PathVariable("spuId")Long spuId){
+
+        List<SkuInfoEntity> skuInfoEntities = this.skuInfoService.list(new QueryWrapper<SkuInfoEntity>().eq("spu_id", spuId));
+
+        return Resp.ok(skuInfoEntities);
+    }
+
 
     /**
      * 列表

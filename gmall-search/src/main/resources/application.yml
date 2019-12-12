@@ -1,0 +1,10 @@
+server:
+  port: 8086
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.30.110
+  elasticsearch:
+    rest:
+      uris: http://192.168.30.110:9200

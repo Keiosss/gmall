@@ -12,9 +12,9 @@ import lombok.Data;
 /**
  * sku信息
  * 
- * @author fgnb
- * @email fgnb@atguigu.com
- * @date 2019-12-02 19:53:01
+ * @author fengge
+ * @email lxf@atguigu.com
+ * @date 2019-12-02 11:23:36
  */
 @ApiModel
 @Data

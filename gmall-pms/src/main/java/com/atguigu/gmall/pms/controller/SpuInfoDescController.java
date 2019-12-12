@@ -22,9 +22,9 @@ import com.atguigu.gmall.pms.service.SpuInfoDescService;
 /**
  * spu信息介绍
  *
- * @author fgnb
- * @email fgnb@atguigu.com
- * @date 2019-12-02 19:53:01
+ * @author fengge
+ * @email lxf@atguigu.com
+ * @date 2019-12-02 11:23:36
  */
 @Api(tags = "spu信息介绍 管理")
 @RestController

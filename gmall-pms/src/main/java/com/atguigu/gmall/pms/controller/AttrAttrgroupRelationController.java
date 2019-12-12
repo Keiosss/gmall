@@ -1,6 +1,7 @@
 package com.atguigu.gmall.pms.controller;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -22,9 +23,9 @@ import com.atguigu.gmall.pms.service.AttrAttrgroupRelationService;
 /**
  * 属性&属性分组关联
  *
- * @author fgnb
- * @email fgnb@atguigu.com
- * @date 2019-12-02 19:53:01
+ * @author fengge
+ * @email lxf@atguigu.com
+ * @date 2019-12-02 11:23:36
  */
 @Api(tags = "属性&属性分组关联 管理")
 @RestController
@@ -32,6 +33,13 @@ import com.atguigu.gmall.pms.service.AttrAttrgroupRelationService;
 public class AttrAttrgroupRelationController {
     @Autowired
     private AttrAttrgroupRelationService attrAttrgroupRelationService;
+
+    @PostMapping("delete/attr")
+    public Resp<Object> deleteRelation(@RequestBody List<AttrAttrgroupRelationEntity> relationEntityList){
+
+        this.attrAttrgroupRelationService.deleteRelation(relationEntityList);
+        return Resp.ok("删除成功");
+    }
 
     /**
      * 列表

@@ -5,16 +5,20 @@ import com.atguigu.gmall.pms.entity.AttrAttrgroupRelationEntity;
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 
+import java.util.List;
+
 
 /**
  * 属性&属性分组关联
  *
- * @author fgnb
- * @email fgnb@atguigu.com
- * @date 2019-12-02 19:53:01
+ * @author fengge
+ * @email lxf@atguigu.com
+ * @date 2019-12-02 11:23:36
  */
 public interface AttrAttrgroupRelationService extends IService<AttrAttrgroupRelationEntity> {
 
     PageVo queryPage(QueryCondition params);
+
+    void deleteRelation(List<AttrAttrgroupRelationEntity> relationEntityList);
 }
 
