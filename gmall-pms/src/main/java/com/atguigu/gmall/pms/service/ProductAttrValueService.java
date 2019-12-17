@@ -19,6 +19,6 @@ public interface ProductAttrValueService extends IService<ProductAttrValueEntity
 
     PageVo queryPage(QueryCondition params);
 
-    List<ProductAttrValueEntity> querySearchAttrValue(Long spuId);
+    List<ProductAttrValueEntity> querySearchAttrValueBySpuId(Long spuId);
 }
 

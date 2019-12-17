@@ -18,6 +18,9 @@ import java.util.List;
 @Service("productAttrValueService")
 public class ProductAttrValueServiceImpl extends ServiceImpl<ProductAttrValueDao, ProductAttrValueEntity> implements ProductAttrValueService {
 
+    @Autowired
+    private ProductAttrValueDao productAttrValueDao;
+
     @Override
     public PageVo queryPage(QueryCondition params) {
         IPage<ProductAttrValueEntity> page = this.page(
@@ -27,12 +30,12 @@ public class ProductAttrValueServiceImpl extends ServiceImpl<ProductAttrValueDao
 
         return new PageVo(page);
     }
-    @Autowired
-    ProductAttrValueDao productAttrValueDao;
+
     @Override
-    public List<ProductAttrValueEntity> querySearchAttrValue(Long spuId) {
-        List<ProductAttrValueEntity> productAttrValueEntities = this.productAttrValueDao.querySearchAttrValue(spuId);
-        return productAttrValueEntities;
+    public List<ProductAttrValueEntity> querySearchAttrValueBySpuId(Long spuId) {
+
+        return this.productAttrValueDao.querySearchAttrValueBySpuId(spuId);
+
     }
 
 }

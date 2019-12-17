@@ -1,20 +1,19 @@
 package com.atguigu.gmall.pms.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-
 import com.atguigu.core.bean.PageVo;
 import com.atguigu.core.bean.QueryCondition;
 import com.atguigu.core.bean.Resp;
+import com.atguigu.gmall.pms.entity.SkuImagesEntity;
+import com.atguigu.gmall.pms.service.SkuImagesService;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import com.atguigu.gmall.pms.entity.SkuImagesEntity;
-import com.atguigu.gmall.pms.service.SkuImagesService;
+import java.util.Arrays;
+import java.util.List;
 
 
 
@@ -92,6 +91,14 @@ public class SkuImagesController {
 		skuImagesService.removeByIds(Arrays.asList(ids));
 
         return Resp.ok(null);
+    }
+
+    //根据skuId查询sku的图片
+    @GetMapping("{skuId}")
+    public Resp<List<SkuImagesEntity>> queryImagesBySkuId(@PathVariable("skuId") Long skuId){
+        List<SkuImagesEntity> imagesEntities = this.skuImagesService.list(new QueryWrapper<SkuImagesEntity>().eq("sku_id", skuId));
+
+        return Resp.ok(imagesEntities);
     }
 
 }
